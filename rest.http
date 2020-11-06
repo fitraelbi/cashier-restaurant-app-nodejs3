@@ -1,8 +1,8 @@
-GET http://localhost:3001
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1OTk4ODMzMDIsImV4cCI6MTU5OTg4MzM2MiwiYXVkIjoidW5kZWZpbmVkIiwiaXNzIjoiZ29vZ2xlLmNvbSJ9.rjAe1p47Q9ea6_ZL4Xdnb30Fjro3Z9gwxleWVVT55bs
+GET http://localhost:3000/product
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDQzMjUzNDcsImV4cCI6MTYwNDMyNTQwNywiYXVkIjoidW5kZWZpbmVkIiwiaXNzIjoiZ29vZ2xlLmNvbSJ9.ThPgPeFbLpscHtW3hLkDziveK6lZFti4wJBQKAv4kAA
 
 ###login Route
-POST http://localhost:3001/auth/login
+POST http://localhost:3000/auth/login
 Content-Type: application/json
 
 {
@@ -11,7 +11,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:3001/user/register
+POST http://localhost:3000/user/register
 Content-Type: application/json
 
 {
@@ -22,12 +22,12 @@ Content-Type: application/json
 
 
 ###
-POST http://localhost:3001/auth/refresh-token
+POST http://localhost:3000/auth/refresh-token
 Content-Type: application/json
 
 {
-    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDE1MzMyMDksImV4cCI6MTYzMzA5MDgwOSwiYXVkIjoiam9obiIsImlzcyI6Imdvb2dsZS5jb20ifQ.hM4zRymmB8gdh6xX0u5cex5JO-utAsIEGBXeFSiYtcA"
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDQzMjUyNjAsImV4cCI6MTYzNTg4Mjg2MCwiYXVkIjoiam9obiIsImlzcyI6Imdvb2dsZS5jb20ifQ.h6QOrEBaIJSDFNmSxoetdiO4rSfxJFWVBSFB5zuRGAQ"
 }
 
 ###
-DELETE http://localhost:3001/auth/logout
+DELETE http://localhost:3000/auth/logout

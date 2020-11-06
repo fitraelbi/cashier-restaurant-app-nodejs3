@@ -12,7 +12,7 @@ controller.getAll = async function (req, res) {
     const data = await History.findAll()
     if (data.length === 0) { res.send(respon(res, 203, data)) } else {
       client.setex('getAllhistory', 3600, JSON.stringify(data))
-      res.send(respon(res, 200, data))
+      respon(res, 200, data)
     }
   } catch (error) {
     res.send(error.message)

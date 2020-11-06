@@ -29,9 +29,9 @@ module.exports = {
     const authHeader = req.headers.authorization
     const bearerToken = authHeader.split(' ')
     const token = bearerToken[1]
-    JWT.verify(token2, process.env.ACCESS_TOKEN_SECRET, (err, payload) => {
+    JWT.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, payload) => {
       if (err) {
-        const message = err.name === 'JsonWEbTokenError' ? 'Unauthorized' : err.message
+        const message = err.name === 'JsonWEbTokenError' ? 'token expired' : err.message
         return next(createError.Unauthorized(message))
       }
       req.payload = payload
@@ -44,7 +44,7 @@ module.exports = {
       const secret = process.env.REFRESH_TOKEN_SECRET
       console.log(userId)
       const options = {
-        expiresIn: '1y',
+        expiresIn: '8h',
         issuer: 'google.com',
         audience: `${userId}`
       }

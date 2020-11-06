@@ -22,11 +22,11 @@ controller.getAll = async function (req, res) {
     }).catch(e => console.log('Error: ', e.message))
     if (data.length === 0) { res.send(respon(res, 203, data)) } else {
       client.setex('getAll', 3600, JSON.stringify(data))
-      res.send(respon(res, 200, data)).status("ok")
+      respon(res, 200, data)
     }
-  } catch (error) {
-    res.send(error.message)
-    
+  } 
+  catch (error) {
+    res.send(error)
   }
 }
 
@@ -108,13 +108,14 @@ controller.update = async (req, res, next) => {
 
 controller.delete = async function (req, res) {
   try {
-    const name = req
+    const name = req.query.name
     //const doesExist = await Product.findOne({ where: { name: name } })
     //if (!doesExist) throw await createError.Conflict(`${result.name} isn't there`)
     console.log(name)
     const data = await Product.destroy({ where: { name: name } })
     client.flushdb()
     res.send(respon(res, 200, data))
+    //res.send(name)
   } catch (error) {
     res.send(error)
   }

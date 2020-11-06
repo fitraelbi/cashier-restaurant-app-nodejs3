@@ -44,7 +44,7 @@ function respon (res, status, result = '') {
     description: desc,
     result: isObject(result) ? [result] : Array.isArray(result) ? result : result
   }
-
+  
   res.status(status).json(results)
 }
 
